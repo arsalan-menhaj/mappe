@@ -1,0 +1,25 @@
+{
+  "name": "mappe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arsalan-menhaj/mappe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arsalan-menhaj/mappe/issues"
+  },
+  "homepage": "https://github.com/arsalan-menhaj/mappe#readme",
+  "dependencies": {
+    "express": "^4.15.5",
+    "jquery": "^3.2.1",
+    "psql": "0.0.1",
+    "sass": "^1.0.0-beta.2"
+  }
+}
