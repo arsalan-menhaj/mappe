@@ -1,0 +1,57 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+body {
+	background-image: url("images/torontoday.jpg");
+	background-size: 2296px 1025px;
+/*	background-repeat:no-repeat;*/
+	margin:0;
+	color:white;
+	font-family: 
+}
+
+.jumbotron {
+   background: rgb(228, 228, 228); /* This is for ie8 and below */
+   background: rgba(228, 228, 228, 0.5); 
+   height:900px;
+}
+ .logo {
+
+
+ 	width:30px; 
+ 	height:30px;
+ 	float:left;
+
+ }
+ .maptitle {
+ 	margin-right:5px;
+ }
+
+ #header {
+ 	width:10em;
+ 	overflow: auto;
+ }
+
+ p {
+ 	float:right;
+ }
+ .p1{
+ 	width:200px;
+ 	height:50px;
+ 	font-size:10pt;
+ }
+.location-img {
+	margin-top:20px;
+	float:left;
+}
+.description {
+	width:8em;
+ 	overflow: auto;
+ 	margin-top:20px;
+ 	margin-left:20px;
+}

@@ -1,0 +1,83 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+body {
+	background-image: url("images/torontoday.jpg");
+	background-size: 2296px 1025px;
+/*	background-repeat:no-repeat;*/
+	margin:0;
+	color:white;
+	font-family: 
+}
+.jumbotron {
+   background: rgb(228, 228, 228); /* This is for ie8 and below */
+   background: rgba(228, 228, 228, 0.5); 
+/*   
+  margin-left: 200px;
+  margin-right: -50px;
+*/
+}
+.vertical-centre{
+	min-height: 40%;
+	min-height:40vh;
+	min-width:100%;
+	margin-left:40%;
+
+}
+.username{
+	float: right;
+	margin-left: 700px;
+
+}
+
+#create_map {
+	background-color: black;
+	color:white;
+	border-radius: 10px;
+	margin:20px;
+}
+
+
+#container {
+	margin: 2em;
+	width: 50%;
+	padding: 10px;
+	text-align:center;
+	align-content: center;
+
+}
+
+.form-control {
+		height:40px;
+		width:100%;
+	/*width: 200px;
+	height:30px;
+	margin:20px;*/
+
+
+
+}
+.searchbar1 {
+	width:100%
+}
+/*.textfield2 {
+	width: 200px;
+	height:30px;
+	margin:20px;
+
+	
+}*/
+
+.tagline {
+	color:white;
+	font-size:14pt;
+}
+.title{
+	color:white;
+	font-size:48pt;
+}
