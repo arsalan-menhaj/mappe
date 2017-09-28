@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/arsalan-menhaj/mappe#readme",
   "dependencies": {
+    "@google/maps": "^0.4.3",
+    "body-parser": "^1.18.2",
     "express": "^4.15.5",
     "jquery": "^3.2.1",
     "psql": "0.0.1",
