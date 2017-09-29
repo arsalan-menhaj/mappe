@@ -6,10 +6,10 @@ const PORT          = 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
-const pg     	 	= require('pg')  
+const pg     	 	    = require('pg')
 const settings      = require('./settings')
 
-const client = new pg.Client({ 
+const client = new pg.Client({
   user     : settings.user,
   password : settings.password,
   database : settings.database,

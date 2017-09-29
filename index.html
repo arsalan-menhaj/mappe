@@ -1,6 +1,14 @@
 <!DOCTYPE html>
+
+
+
+
 <html lang="en">
 	<head>
+
+
+
+
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width =device-width, initial-scale =1">
@@ -10,7 +18,7 @@
 	</head>
 
 
-	
+
 	</head>
 
  <body>
@@ -22,7 +30,7 @@
        <button type="button" class="btn btn-sm navbar-btn">Sign in</button>
        <button type="button" class="btn btn-sm navbar-btn">register</button>
        <p class='username'> Username</p>
-  
+
     </div>
   </div>
 </nav>
@@ -41,11 +49,11 @@
       </span>
     </div><!-- /input-group -->
     </form>
-   	
-		
+
+
 
 		<button id="create_map" class="btn" value="create_map"> Create Map</button>
-		<form class= "search_bar" method = "POST" action="/users/userid/maps">
+		<form id= "city_input" method = "POST" action="/users/userid/maps">
 		<textarea class ="form-control" name="text" placeholder="Specify a City..."></textarea><br></br>
 		<input type="submit" class ="btn btn-sm" value="city-input"></input>
 		<p id="error-message"><p>
@@ -53,15 +61,24 @@
 
 
 
-	
+
 	</main>
 
+    <!-- jQuery -->
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 
-	
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" >
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" ></script>
+    <!-- Cloudflare -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" ></script>
+
+    <!-- App JS -->
+    <!-- Change src -->
+    <script src = "./public/scripts/app.js"> </script>
 
  </body>
 
