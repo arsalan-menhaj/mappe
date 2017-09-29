@@ -6,13 +6,18 @@ html {
 }
 
 
-body {
-	background-image: url("images/torontoday.jpg");
+body {background: url(https://media.giphy.com/media/25MOxgdf9pS00/giphy.gif) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+	/*background-image: url("images/torontoday.jpg");
 	background-size: 2296px 1025px;
 /*	background-repeat:no-repeat;*/
-	margin:0;
+	/*margin:0;
 	color:white;
-	font-family: 
+	font-family:*/ 
 }
 
 .jumbotron {
