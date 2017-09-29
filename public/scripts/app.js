@@ -19,6 +19,7 @@ function takeCityInput() {
     console.log(inputValue);
 
   } else {
+
     let $city_input = $("#city_input");
     $.post(`/users/userid/maps`, $city_input.serialize())
     .done(function(data) {

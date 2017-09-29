@@ -6,13 +6,24 @@ html {
 }
 
 
-body {
-	background: url(https://blogs.techsmith.com/wp-content/uploads/2016/08/citylarge.gif) no-repeat center center fixed; 
+
+body {	  
+
+  background: url(https://blogs.techsmith.com/wp-content/uploads/2016/08/citylarge.gif) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
+
+
+/*	background-image: url("images/torontoday.jpg");
+	background-size: 2296px 1025px;
+
+	margin:0;
+	color:white;
+	font-family: */
+
 }
 .jumbotron {
    background: rgb(228, 228, 228); /* This is for ie8 and below */
