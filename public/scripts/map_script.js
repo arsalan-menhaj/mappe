@@ -1,7 +1,6 @@
 // How to use this script:
 // Include this script in the page where a map needs to be shown
 // Include another script that will contain/produce a 'coordinates variable'
-// Include a script element that will have src = source
 
 
 // API key will need to be moved!!!!

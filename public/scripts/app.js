@@ -1,6 +1,5 @@
 let userid;
 
-
 // Helper function to make input field visible/invisible
 function changeFieldStatus($element) {
   if ($element.css('display') !== 'none') {
@@ -13,8 +12,9 @@ function changeFieldStatus($element) {
 
 // Helper function for form validation
 function takeCityInput() {
-
-  if (input === '') {
+  let $city_input = $("#city_input");
+  var inputValue = $city_input.val();
+  if (inputValue === '') {
     $("#error-message").empty();
     $("#error-message").text("Please type the name of a city for the new map!");
 
@@ -22,6 +22,7 @@ function takeCityInput() {
     $.post(`/users/userid/maps`, $city_input.serialize())
     .done(function(data) {
       console.log('Button clicked, performing ajax call...');
+      console.log(inputValue);
       $("#error-message").empty();
     }).fail(function(error) {
       console.error(error);
@@ -29,31 +30,34 @@ function takeCityInput() {
   }
 }
 
-function toggleCreateMap() {
-  $city_input.slideToggle();
-  $city_input.find("textarea").focus();
+function toggleCreateMap(element) {
+  console.log(element)
+  $(element).slideToggle();
+  $(element).find("textarea").focus();
 }
 
 
 $(document).ready(function () {
 
   // Event handler for "Create Map" button on Home Page
-  let $create_map;
-  let $city_input;
+  let $create_map = $("#create_map");
+  let $city_input = $("#city_input");
+  console.log($create_map);
+  console.log($city_input);
   $create_map.on('click', (event) => {
-    toggleCreateMap();
+    $city_input.slideToggle()
   });
 
   // Event handler for "Submit" button in "Create Map" field on Home Page
   $city_input.on('submit', (event) => {
     event.preventDefault();
     var formData = $(this).serialize();
-    var inputValue = $city_input.val();
     takeCityInput();
   });
 
   // Event handler for when user clicks on a particular location
   // on a map in the Create/Edit map page
+  /*
   let $location;
   $location.on('click', (event) => {
     // Need to find unique location identifiers from Maps API
@@ -63,7 +67,9 @@ $(document).ready(function () {
 
     // If this location has already been added to the map,
     // Show Description and Images
+    // need to trigger POST request to add this particular location to this map
+    addToMap(loc);
+*/
 
-  })
 
-})
+});
