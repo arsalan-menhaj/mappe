@@ -4,13 +4,13 @@
 
 
 // API key will need to be moved!!!!
-var api_key = AIzaSyBMSpojBgluxblRVHmiRw4dLUntkjdj6dM;
+var api_key = 'AIzaSyBMSpojBgluxblRVHmiRw4dLUntkjdj6dM';
 
 function initMap() {
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
-    center: coordinates;
+    center: coordinates
   });
   var marker = new google.maps.Marker({
     position: coordinates,

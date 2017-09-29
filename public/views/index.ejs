@@ -4,22 +4,22 @@
 
 
 <html lang="en">
-	<head>
+  <head>
 
 
 
 
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width =device-width, initial-scale =1">
-	<title> Map</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-	<link rel="stylesheet" href="main.css" type="text/css" />
-	</head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width =device-width, initial-scale =1">
+  <title> Map</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <link rel="stylesheet" href="main.css" type="text/css" />
+  </head>
 
 
 
-	</head>
+  </head>
 
  <body>
 
@@ -36,13 +36,13 @@
 </nav>
 
    <main id= "container">
- 	<div class ="jumbotron vertical-centre">
+  <div class ="jumbotron vertical-centre">
       <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png"  width="50px" height ="50px">
       <h3 class="title"> MaP</h3>
 
 
       <form class= "search_bar1" method = "GET" action="/maps">
-    	<div class="input-group">
+      <div class="input-group">
           <textarea class ="form-control" name="text" placeholder="Specify a City..."></textarea>
         <span class="input-group-btn">
         <button class="btn btn-default" type="sumbit" value="search">Go!</button>
@@ -52,17 +52,17 @@
 
 
 
-		<button id="create_map" class="btn" value="create_map"> Create Map</button>
-		<form id= "city_input" method = "POST" action="/users/userid/maps">
-		<textarea id ="city_input_text" name="text" placeholder="Specify a City..."></textarea><br></br>
-		<input type="submit" class ="btn btn-sm" value="city-input"></input>
-		<p id="error-message"><p>
-		</form>
+    <button id="create_map" class="btn" value="create_map"> Create Map</button>
+    <form id= "city_input" method = "POST" action="/users/userid/maps">
+    <textarea class ="form-control citytext" name="text" placeholder="Specify a City..."></textarea><br></br>
+    <input type="submit" class ="btn btn-sm" value="city-input"></input>
+    <p id="error-message"><p>
+    </form>
 
 
 
 
-	</main>
+  </main>
 
     <!-- jQuery -->
     <script
@@ -78,7 +78,6 @@
 
     <!-- App JS -->
     <!-- Change src -->
-    <script src = "./public/scripts/app.js"> </script>
+    <script src = "../scripts/app.js"> </script>
 
  </body>
-

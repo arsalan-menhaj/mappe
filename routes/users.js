@@ -1,32 +1,26 @@
 const express  = require('express');
-const app = express();
-const settings = require("../settings")
-const knex = require('knex')({
-  client: 'pg',
-  version: '7.2',
-  debug:true,
-  connection: {
-    host: settings.host,
-    user     : settings.user,
-    password : settings.password,
-    database : settings.database,
-  }
-});
-app.set("view engine", "ejs");
+// const app = express();
+const settings = require("../settings");
+
+
+// app.set("view engine", "ejs");
 const userRouter  = express.Router();
 
-
+/*
 // knex call to a temp map table I made on my computer. not real database
   knex('maps').insert({mapid:7, mapname: 'fourfivestillalive'})
     .then(console.log)
     .catch(console.error)
 knex.select('*').from('maps')
 .then(console.log)
-ß     .finally(function(){
+     .finally(function(){
       knex.destroy();
       })
+*/
 
 module.exports = function(DataHelpers) {
+
+  let city = '';
 
   userRouter.post(`/userid/maps`, function(req, res) {
     if (!req.body.text) {
@@ -34,30 +28,28 @@ module.exports = function(DataHelpers) {
       return;
     }
 
-   
 
-    // DataHelpers.createMap(mapname, usercreationID)
+    // Insert new row into maps table for newly created map
+    // Row will only have an id at this point
+    // Will have to add userid upon user implementation
+    console.log(DataHelpers);
+    mapID = DataHelpers.knex('maps').insert({}).then(result => {
+      res.send()
+    });
 
-    let city = req.body.text;
+    //insert(default)?
 
-    res.redirect(`/:usersid/maps/mapid?city=${city}`);
+    city = req.body.text;
+
   });
 
 
-    // Create a row in maps for this new map
-    // Fill in with random map id, name is null
-
-    let city = req.body.text;
-
-    res.redirect(`/userid/maps/mapid?city=${city}`);
-  }
-
-
   userRouter.get(`/userid/maps/mapid`, (req, res) => {
+    console.log(req.query.city);
+
     // Sends user to the main page for a particular map
 
-    res.render("create_map", { coordinates:req.query.city });
-
+    // Does this need to render EJS file
     res.render("create_map", { coordinates: DataHelpers.findCity(req.query.city) });
 
   })

@@ -12,20 +12,20 @@ function changeFieldStatus($element) {
 
 // Helper function for form validation
 function takeCityInput() {
-  let $city_input = $("#city_input");
-  var inputValue = $city_input.val();
+  var inputValue = $('.citytext').val();
   if (inputValue === '') {
     $("#error-message").empty();
     $("#error-message").text("Please type the name of a city for the new map!");
+    console.log(inputValue);
 
   } else {
+    let $city_input = $("#city_input");
     $.post(`/users/userid/maps`, $city_input.serialize())
     .done(function(data) {
       console.log('Button clicked, performing ajax call...');
-      console.log(inputValue);
+      window.location = `/users/userid/maps/mapid?city=${inputValue}`;
       $("#error-message").empty();
     }).fail(function(error) {
-      console.error(error);
     })
   }
 }
