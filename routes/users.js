@@ -50,7 +50,9 @@ module.exports = function(DataHelpers) {
     // Sends user to the main page for a particular map
 
     // Does this need to render EJS file
-    res.render("create_map", { coordinates: DataHelpers.findCity(req.query.city) });
+    DataHelpers.findCity(req.query.city).then(function(coordinates) {
+      res.render("create_map", { coordinates: coordinates, city: req.query.city });
+    });
 
   })
 

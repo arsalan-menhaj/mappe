@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="createhtml.css" type="text/css" />
+
 
     <style>
      #map {
@@ -45,8 +44,29 @@
 
     <!-- Script Interacting with Google Maps API -->
     <script src="/public/scripts/map_script.js"></script>
+    <script>
+      function initMap() {
+        var uluru = <% coordinates %>;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMSpojBgluxblRVHmiRw4dLUntkjdj6dM&callback=initMap">
+    </script>
+
+
+
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min."></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="createhtml.css" type="text/css" />
 
   </body>
 

@@ -14,7 +14,7 @@ module.exports = function makeDataHelpers(databaseConnection) {
     // Function that accepts a city name, and returns coordinates
     findCity: function(input) {
       var coordinates = {};
-      this.gClient.geocode({address: input}).asPromise()
+      return this.gClient.geocode({address: input}).asPromise()
       .then((response) => {
         coordinates = response.json.results[0].geometry.location;
         console.log(coordinates);
