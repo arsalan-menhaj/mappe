@@ -56,6 +56,16 @@ module.exports = function(DataHelpers) {
 
   })
 
+  userRouter.put(`/userid/maps/mapid`, (req, res) => {
+    console.log("AHHAHAHAHAH");
+  DataHelpers.knex('maps').insert({description: req.body.txt}).then(result => {
+
+      res.render("create_map")
+    });
+    
+
+  })
+
 
 
   return userRouter;
