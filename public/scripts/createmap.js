@@ -1,7 +1,7 @@
 
 
 function updateDescription() {
-  var inputValue = $('.mapdesc').val();
+  var inputValue = $('#mapdesc').val();
   if (inputValue === '') {
     $("#error-message").empty();
     $("#error-message").text("Please input");
@@ -10,7 +10,7 @@ function updateDescription() {
   } else {
 
     
-    $.put(`/users/userid/maps`, inputValue)
+    $.post(`/users/userid/maps/mapid`, inputValue)
     .done(function(data) {
     $('.p1').text(inputValue);
  
@@ -23,10 +23,10 @@ function updateDescription() {
 
 $(document).ready(function () {
  
-  $('#map-description-bar').on('sumbit',(event) => {
+  $('#submitter').on('click',(event) => {
    event.preventDefault();
     updateDescription();
-    console.log( $('#map-description-bar'));
+    // console.log( $('#map-description-bar'));
  })
 
 });
