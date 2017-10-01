@@ -62,7 +62,7 @@ module.exports = function(DataHelpers) {
     console.log('WHALE',req.query.city );
       res.render("create_map",{ coordinates: coordinates, city: req.query.city })
     });
-    
+
 
   })
 

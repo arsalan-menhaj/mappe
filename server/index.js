@@ -1,21 +1,8 @@
 "use strict";
 
-// Basic express setup:
-
-const PORT          = 8080;
-const express       = require("express");
-const bodyParser    = require("body-parser");
-const app           = express();
-const pg     	 	    = require('pg');
 const settings      = require('../settings');
-const path = require('path');
 
-app.set("view engine", "ejs");
-// app.set('views', path.join(__dirname, '..', 'public/views'));
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
-
+// PostqreSQL Database Connection function call
 const databaseConnection =  {
   knex:  require('knex')({
     client: 'pg',
@@ -30,11 +17,38 @@ const databaseConnection =  {
   })
 };
 
+const PORT          = 8080;
+const express       = require("express");
+const bodyParser    = require("body-parser");
+const app           = express();
+const pg     	 	    = require('pg');
+const cookieSession = require('cookie-session');
+const flash = require('connect-flash');
+const path = require('path');
+const User = require('../server/userauth.js')(databaseConnection.knex);
+
+app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use(flash());
+
+
+
+
+// const User = require('./lib/user')(databaseConnection.knex);
+
+app.use(cookieSession({
+  name: 'session',
+  keys: [process.env.SESSION_SECRET || 'development']
+}));
+
 const DataHelpers = require("./data_helpers.js")(databaseConnection);
 const usersRoutes = require("../routes/users")(DataHelpers);
 const homeRoutes = require("../routes/home")(DataHelpers);
+const authRoutes = require("../routes/auth")(User);
 app.use("/users", usersRoutes);
 app.use("/home", homeRoutes);
+app.use("/", authRoutes);
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
