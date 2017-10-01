@@ -53,9 +53,10 @@
     <!-- Script Interacting with Google Maps API -->
     <script>
       function initMap() {
+         var coordinates = { lat: <%= coordinates.lat %>, lng: <%= coordinates.lng %> };
         // Styles a map in night mode.
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 40.674, lng: -73.945},
+          center: coordinates,
           zoom: 12,
 
           styles: [
@@ -152,19 +153,22 @@
      
 
       function placeMarkerAndPanTo(latLng, map) {
-        var contentString = '<div class infocontent>'+'<p class="windowtext">this is a window</p>'+
-            '<form class= "search_bar1" method = "post" action="/maps">'+
-      '<div class="input-group-xs">'+
-          '<textarea class ="form-control texty" name="text" value="some text" placeholder="Describe This Spot.."></textarea>'+
-        '<span class="input-group-btn-xs">'+
-        '<button class="btn btn-default-xs" type="sumbit" value="search">Go!</button>'+
-      '</span>'+
-      '<script> $(".texty").keup(function() { var value = $(this).val(); $(".windowtext").text(value); }).keyup();'+
-    '</div>'+
-    '</form>'+
-    '</div>'
+        var inputForm = 'Describe This Spot:  <input type="text" id="nameinput" size="31" maxlength="31" tabindex="1"/>' + '<input type="button" id="inputButton" value="Submit">' + 'Include an image:  <input type="text" id="imageinput" size="31" maxlength="31" tabindex="2"/>' + '<input type="button" id="inputButton" value="Submit">';
+       
+
+    //     var contentString = '<div class infocontent>'+'<p class="windowtext">this is a window</p>'+
+    //         '<form class= "search_bar1" method = "post" action="/maps">'+
+    //   '<div class="input-group-xs">'+
+    //       '<textarea class ="form-control texty" name="text" value="some text" placeholder="Describe This Spot.."></textarea>'+
+    //     '<span class="input-group-btn-xs">'+
+    //     '<button class="btn btn-default-xs" type="sumbit" value="search">Go!</button>'+
+    //   '</span>'+
+    //   '<script> $(".texty").keup(function() { var value = $(this).val(); $(".windowtext").text(value); }).keyup();'+
+    // '</div>'+
+    // '</form>'+
+    // '</div>'
         var infowindow = new google.maps.InfoWindow({
-          content: contentString })
+          content: inputForm })
         var marker = new google.maps.Marker({
           position: latLng,
           map: map,
