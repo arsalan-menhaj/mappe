@@ -58,9 +58,9 @@ module.exports = function(DataHelpers) {
 
   userRouter.post(`/userid/maps/mapid`, (req, res) => {
     console.log("AHHAHAHAHAH");
-  DataHelpers.knex('maps').insert({description: req.body.txt}).then(result => {
-
-      res.render("create_map")
+  DataHelpers.knex('maps').insert({Description: req.body.text}).then(result => {
+    console.log('WHALE',req.query.city );
+      res.render("create_map",{ coordinates: coordinates, city: req.query.city })
     });
     
 
