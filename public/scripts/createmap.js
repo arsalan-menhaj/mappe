@@ -9,11 +9,10 @@ function updateDescription() {
 
   } else {
 
-    
     $.post(`/users/userid/maps/mapid`, inputValue)
     .done(function(data) {
     $('.p1').text(inputValue);
- 
+
       $("#error-message").empty();
     }).fail(function(error) {
     })
@@ -22,10 +21,12 @@ function updateDescription() {
 
 
 $(document).ready(function () {
- 
-  $('#submitter').on('click',(event) => {
+
+  $('#map-description-bar').on('submit',(event) => {
    event.preventDefault();
-    updateDescription();
+   console.log('submitted');
+   updateDescription();
+   return false;
     // console.log( $('#map-description-bar'));
  })
 

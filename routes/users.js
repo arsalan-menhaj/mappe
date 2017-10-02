@@ -33,6 +33,9 @@ module.exports = function(DataHelpers) {
     // Row will only have an id at this point
     // Will have to add userid upon user implementation
     console.log(DataHelpers);
+
+    // This should be done by a helper function
+    // instead of simply pulling from the database
     mapID = DataHelpers.knex('maps').insert({}).then(result => {
       res.send()
     });
@@ -57,8 +60,8 @@ module.exports = function(DataHelpers) {
   })
 
   userRouter.post(`/userid/maps/mapid`, (req, res) => {
-    console.log("AHHAHAHAHAH");
-  DataHelpers.knex('maps').insert({Description: req.body.text}).then(result => {
+    console.log(req.body.text);
+  DataHelpers.knex('maps').insert({description: req.body.text}).then(result => {
     console.log('WHALE',req.query.city );
       res.render("create_map",{ coordinates: coordinates, city: req.query.city })
     });

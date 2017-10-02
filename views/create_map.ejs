@@ -25,7 +25,7 @@
         <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png" width= "50px" height=50px">
       </div>
           <div id="map"></div>
-        <div id="map-display">    
+        <div id="map-display">
 
 
         </div>
@@ -38,11 +38,11 @@
                <div class="input-group">
                 <textarea id ="mapdesc" class ="form-control" type='submit' name="text" placeholder="Desribe your Map.. "></textarea>
                 <span class="input-group-btn">
-                <button id="submitter" class="btn btn-default" type="sumbit" value="submit">Go!</button>
+                <button id="submitter" class="btn btn-default" type="submit" value="submit">Go!</button>
                 </span>
               </div><!-- /input-group -->
               </form>
-              <p class ="p1"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+              <p class ="p1"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             </div>
           </article>
         </div>
@@ -141,20 +141,20 @@
           ]
         });
 
-    
 
 
- 
+
+
           map.addListener('click', function(e) {
           placeMarkerAndPanTo(e.latLng, map);
         });
       }
 
-     
+
 
       function placeMarkerAndPanTo(latLng, map) {
         var inputForm = 'Describe This Spot:  <input type="text" id="nameinput" size="31" maxlength="31" tabindex="1"/>' + '<input type="button" id="inputButton" value="Submit">' + '<br></br>'+ 'attach image url:  <input type="url" name="imaglink" id="imglink" placeholder="Insert image URL here" size="31" maxlength="31" tabindex="2"/>' + '<input type="button" id="inputButton" value="Submit">';
-       
+
 
     //     var contentString = '<div class infocontent>'+'<p class="windowtext">this is a window</p>'+
     //         '<form class= "search_bar1" method = "post" action="/maps">'+
@@ -173,19 +173,19 @@
           position: latLng,
           map: map,
           title: 'hi'
- 
+
         });
           marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
         map.panTo(latLng);
-      
+
       }
 
 
 
 
-    
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMSpojBgluxblRVHmiRw4dLUntkjdj6dM&callback=initMap">

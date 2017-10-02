@@ -34,8 +34,7 @@ module.exports = function (User) {
 
   // Update profile
   authRouter.post('/profile', (req, res) => {
-    // We'll update what we need to. More details in lib/user.js
-    User.update(req.session.user_id, req.body.email, req.body.password)
+    User.update(req.session.user_id, req.body.user_id, req.body.password)
     .then(() => {
       // Indicate to the user that the update was successful
       req.flash('info', 'updated your profile');
@@ -62,12 +61,12 @@ module.exports = function (User) {
   authRouter.post('/login', (req, res) => {
     User.authenticate(req.body.username, req.body.password)
     .then((user) => {
-      // If email and password match, we assign the id to the session
+      // If user_id and password match, we assign the id to the session
       req.session.user_id = user.id;
       console.log(req.session.user_id);
       res.redirect('/');
     }).catch((err) => {
-      // In the even that an error occurred at any point during the promise
+      // In the event that an error occurred at any point during the promise
       // chain, add the error message to the flash errors and redirect.
       req.flash('errors', err.message);
       console.log('error')
@@ -81,17 +80,15 @@ module.exports = function (User) {
   });
 
   authRouter.post('/register', (req, res) => {
-    if (!req.body.email || !req.body.password) {
-      // If the registration form was submitted without a value for email or
+    if (!req.body.user_id || !req.body.password) {
+      // If the registration form was submitted without a value for user_id or
       // password, then set an error message and redirect.
-      req.flash('errors', 'email and password are required');
+      req.flash('errors', 'user_id and password are required');
       res.redirect('/register');
-      // IMPORTANT: always return after sending a response, whether it's a
-      // redirect, render, send, end, json, or whatever.
       return;
     }
     console.log(User);
-    User.add(req.body.email, req.body.password)
+    User.add(req.body.user_id, req.body.password)
     .then(() => {
       // This callback will be called after the promise returned by the last
       // call to .then has resolved. That happens after the user is inserted
@@ -99,7 +96,7 @@ module.exports = function (User) {
       req.flash('info', 'account successfully created');
       res.redirect('/home');
     }).catch((err) => {
-      // In the even that an error occurred at any point during the promise
+      // In the event that an error occurred at any point during the promise
       // chain, add the error message to the flash errors and redirect.
       req.flash('errors', err.message);
       res.redirect('/register');
