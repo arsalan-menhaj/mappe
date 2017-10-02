@@ -54,17 +54,23 @@ module.exports = function (User) {
     res.redirect('/');
   });
 
+  authRouter.get('/login', (req, res) => {
+    res.render('login');
+  })
+
 
   authRouter.post('/login', (req, res) => {
-    User.authenticate(req.body.email, req.body.password)
+    User.authenticate(req.body.username, req.body.password)
     .then((user) => {
       // If email and password match, we assign the id to the session
       req.session.user_id = user.id;
+      console.log(req.session.user_id);
       res.redirect('/');
     }).catch((err) => {
       // In the even that an error occurred at any point during the promise
       // chain, add the error message to the flash errors and redirect.
       req.flash('errors', err.message);
+      console.log('error')
       res.redirect('/');
     });
   });
